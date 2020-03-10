@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>net.fluance.app</groupId>
+		<artifactId>fluance-appbase</artifactId>
+		<version>4.1.9-RELEASE</version>
+		<relativePath>../../pom.xml</relativePath>
+	</parent>
+	<artifactId>fluance-appbase-security</artifactId>
+
+	<dependencies>
+		<dependency>
+			<groupId>net.fluance.app</groupId>
+			<artifactId>fluance-appbase-spring</artifactId>
+			<version>${fluance.appbase.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-codec</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-io</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-net</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-json</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-xml</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-sql</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>net.fluance.commons</groupId>
+					<artifactId>fluance-commons-lang</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Fix version for compatibility with springboot-starter 1.5.3.RELEASE -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.55</version>
+		</dependency>
+		<dependency>
+			<groupId>com.nurkiewicz.jdbcrepository</groupId>
+			<artifactId>jdbcrepository</artifactId>
+			<version>0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.balana</groupId>
+			<artifactId>org.wso2.balana</artifactId>
+			<version>1.0.0.wso2v8</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

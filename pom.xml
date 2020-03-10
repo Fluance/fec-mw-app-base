@@ -1,0 +1,135 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.fluance.app</groupId>
+	<artifactId>fluance-appbase</artifactId>
+	<version>4.1.9-RELEASE</version>
+	<packaging>pom</packaging>
+	<name>Fluance App Base</name>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.3.0.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<querydsl.version>3.6.4</querydsl.version>
+		<dbunit.version>2.5.0</dbunit.version>
+		<fluance.appbase.version>4.1.9-RELEASE</fluance.appbase.version>
+		<fluance.commons.version>1.9.1-RELEASE</fluance.commons.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Test dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-codec</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-io</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-net</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-json</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-xml</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-sql</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.fluance.commons</groupId>
+			<artifactId>fluance-commons-lang</artifactId>
+			<version>${fluance.commons.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<!-- <compilerArgument>-parameters</compilerArgument> -->
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<show>private</show>
+					<nohelp>true</nohelp>
+					<additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.4</version>
+				<configuration>
+					<stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile>
+					<show>public</show>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+
+	<modules>
+		<module>module/fluance-appbase-data</module>
+		<module>module/fluance-appbase-spring</module>
+		<module>module/fluance-appbase-web</module>
+		<module>module/fluance-appbase-security</module>
+		<module>module/fluance-appbase-test</module>
+	</modules>
+</project>
